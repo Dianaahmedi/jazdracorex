@@ -326,3 +326,10 @@ nav ul li a img {
 .gallery img {
   will-change: transform, opacity;
 }
+
+  html, body {
+  overflow-x: hidden;
+}
+  body {
+  overflow-x: hidden;
+}
