@@ -281,6 +281,11 @@ nav ul li a img {
   transform: translateY(0);
 }
 
+.gallery {
+  column-count: 2;
+  column-gap: 40px;
+}
+
 /* ---------------- Mobilvennlig justering ---------------- */
 @media (max-width: 768px) {
   /* Mindre padding for innhold */
