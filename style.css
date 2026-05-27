@@ -312,10 +312,9 @@ nav ul li a img {
   }
 
   /* Galleri 1 kolonne på mobil */
-  .gallery {
-    column-count: 1;
-    column-gap: 20px;
-  }
+.gallery {
+  column-count: 2;
+}
 
   /* About-page tekst */
   #about-page .about-text {
