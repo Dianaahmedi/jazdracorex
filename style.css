@@ -292,7 +292,16 @@ nav ul li a img {
     padding-left: 15px;
     padding-right: 15px;
   }
+  
+nav ul {
+  padding-right: 0;
+  justify-content: center;
+}
 
+  header {
+  padding-left: 10px;
+  padding-right: 10px;
+}
   /* Mindre logo */
   .logo img {
     height: 80px;
