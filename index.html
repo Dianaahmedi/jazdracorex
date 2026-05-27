@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diana Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="images/JazDracorex.png" id="logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#" data-page="work-page">MORE</a></li>
+      <li><a href="#" data-page="about-page">ABOUT</a></li>
+      <li><a href="#" data-page="contact-page">CONTACT</a></li>
+      <li>
+        <a href="https://www.instagram.com/jazdcrx/" target="_blank">
+          <img src="images/INSTALOGO.png" alt="Instagram" class="header-insta">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hovedinnholdet som alltid vises først -->
+<main id="main-content">
+  <div class="gallery">
+    <img src="images/Grimaces.png">
+    <img src="images/Cowboy.png">
+       <img src="images/Bladed.png">
+    <img src="images/Voltron.png" class="no-gap">
+    <img src="images/cockygirllarge.jpeg"> 
+    <img src="images/BigPinkOne.png">
+  </div>
+</main>
+
+<div id="work-page" class="page">
+  <div class="page-content">
+
+    <div class="gallery">
+      <img src="images/mothertalkinglarge.jpeg">
+            <img src="images/TripToRio.png">
+      <img src="images/Strangerslove.png">
+      <img src="images/standout2.jpeg">
+      <img src="images/Skyscraper.png">
+      <img src="images/Diana_Ahmedi_Street_Cat.png">
+    </div>
+
+  </div>
+</div>
+
+<script>
+const images = document.querySelectorAll('.gallery img');
+images.forEach(img => {
+  img.addEventListener('load', () => {
+    img.classList.add('loaded');
+  });
+});
+</script>
+
+
+<div id="about-page" class="page">
+  <div class="page-content about-text">
+    <h2>About Diana.</h2>
+    <p>
+      Diana (19) is a multidisciplinary artist based in Oslo. Working across painting, drawing, and experimental techniques, her practice explores emotion through color, atmosphere, and intuition. 
+    </p>
+    <p>
+      Inspired by music, mood, and personal experience, she moves fluidly between mediums such as acrylics and graffiti, allowing each work to evolve organically. 
+    </p>
+    <p>
+      Rather than offering fixed meanings, Diana creates open emotional spaces that invite viewers to respond through their own feelings, memories, and interpretations.
+    </p>
+  </div>
+</div>
+
+
+<div id="contact-page" class="page">
+  <div class="page-content">
+    <h2 class="contact-title">Contact Me</h2>
+
+    <form class="contact-form" action="https://formspree.io/f/xkgvgwaj" method="POST">
+      <input type="text" name="name" placeholder="Full name" required>
+      <input type="email" name="email" placeholder="E-Mail" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">SEND</button>
+    </form>
+  </div>
+</div>
+
+
+
+<script>
+const links = document.querySelectorAll('nav a');
+const pages = document.querySelectorAll('.page');
+const mainContent = document.getElementById('main-content');
+const logo = document.getElementById('logo');
+
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const pageId = link.dataset.page;
+    if (pageId) {
+      e.preventDefault(); // only block if it's an internal page
+      mainContent.style.display = 'none';
+      pages.forEach(p => p.style.display = 'none');
+      document.getElementById(pageId).style.display = 'block';
+    }
+    // if no pageId, it's an external link (like Instagram), so let it open normally
+  });
+});
+
+
+logo.addEventListener('click', () => {
+  // Skjul alle overlay pages
+  pages.forEach(p => p.style.display = 'none');
+
+  // Vis main content
+  mainContent.style.display = 'block';
+
+  // Reset fade-in effect for gallery images
+  const images = document.querySelectorAll('.gallery img');
+  images.forEach(img => {
+    img.classList.remove('loaded');   // fjern loaded-klassen først
+    setTimeout(() => {
+      img.classList.add('loaded');   // legg den til igjen for fade-in
+    }, 50); // liten delay for å trigge animasjon
+  });
+});
+
+function triggerFadeIn(container) {
+  const images = container.querySelectorAll('.gallery img');
+  images.forEach((img, index) => {
+    img.classList.remove('loaded');
+    setTimeout(() => {
+      img.classList.add('loaded');
+    }, index * 100); // 100ms mellom hvert bilde
+  });
+}
+
+
+
+// Legg til fade-in når en side vises via navigasjon
+const navLinks = document.querySelectorAll('nav a[data-page]');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const pageId = link.dataset.page;
+    if (pageId) {
+      const page = document.getElementById(pageId);
+      triggerFadeIn(page);
+    }
+  });
+});
+
+
+</script>
+
+
+
+  <!-- Footer -->
+<footer>
+<a href="https://www.instagram.com/jazdcrx/" target="_blank">@jazdcrx</a>
+</footer>
+
+
+
+</body>
+</html>
+
+

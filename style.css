@@ -1,0 +1,331 @@
+/* ---------------- Reset ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.5;
+  overflow-x: hidden; /* fjerner horisontale streker */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  background: white;
+  z-index: 2000;
+  border-bottom: none;
+  position: relative; /* så den ikke flyter over innholdet */
+}
+
+.logo img {
+  height: 120px;
+  width: auto;
+  margin-left: 83px; /* pushes it slightly to the right */
+  margin-top: 20px;    /* pushes down */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* ---------------- Sections ---------------- */
+section {
+  padding: 120px 40px;
+  min-height: 100vh;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ---------------- Work gallery (Pinterest-style) ---------------- */
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0; /* skarpe kanter */
+}
+
+.gallery img {
+  opacity: 0;                 
+  transform: translateY(20px); 
+  transition: opacity 1s ease, transform 1s ease; 
+}
+
+.gallery img.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  color: #111;
+  font-size: 18px;
+  font-weight: normal; /* fjernet bold */
+  border-top: none;    /* fjernet streken */
+  margin-top: 40px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #111;
+  font-weight: normal;  /* fjerner bold */
+}
+
+footer a:hover {
+  opacity: 0.6;
+}
+
+.page {
+  display: none;
+  position: relative;
+  padding-top: 10px;   /* samme høyde som main */
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  z-index: 100;
+}
+
+
+
+/* felles padding, men ulik top-padding */
+#main-content {
+  padding-top: 10px;    /* plass under header */
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.page {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end; /* plasserer menyen mot høyre */
+  padding-right: 86px;      /* 100px inn fra høyre kant */
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;        /* fjerner bold */
+  font-size: 20px;            /* større skrift */
+  font-family: 'Arial', sans-serif;  /* bytt til ønsket font, f.eks 'Helvetica' eller Google Font */
+  letter-spacing: 1px;        /* litt ekstra luft mellom bokstaver om ønskelig */
+}
+
+nav a:hover {
+  opacity: 0.6;               /* behold hover-effekt */
+}
+
+footer a {
+  border-bottom: 1px solid #111; /* strek under lenken */
+  text-decoration: none;          /* fjerner default underline */
+  color: #111;
+  font-weight: normal;
+}
+
+/* ---------------- Contact form ---------------- */
+.contact-title {
+  font-size: 48px;         /* større overskrift */
+  margin-top: 40px;       /* lenger ned fra toppen */
+  margin-bottom: 40px;
+  text-align: center;      /* midtstilt */
+  letter-spacing: 3px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto; /* midtstiller skjemaet på siden */
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 18px;
+  padding: 18px;
+  margin-bottom: 25px;
+  border: 2px solid black;   /* sorte rammer */
+  border-radius: 0;          /* skarpe kanter */
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  color: black;
+}
+
+.contact-form textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.contact-form button {
+  align-self: flex-end;      /* knappen til høyre */
+  padding: 14px 40px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #333;
+}
+
+/* ---------------- Contact page adjustments ---------------- */
+#contact-page .page-content {
+  padding-top: 20px;  /* moves everything higher on the screen */
+}
+
+.header-insta {
+  width: 25px;       /* small size */
+  height: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+nav ul li a img {
+  display: inline-block;
+}
+
+/* Layout for About page: tekst til venstre, bilde til høyre */
+#about-page .page-content.about-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;  /* toppen av kolonnene på samme nivå */
+  gap: 40px;                /* mellomrom mellom tekst og bilde */
+  padding-top: 80px;        /* luft under header */
+  padding-left: 40px;       /* tekst nær venstre kant */
+  padding-right: 40px;      /* litt luft på høyre */
+}
+
+/* Tekstkolonne */
+#about-page .about-text {
+  flex: 1;                  /* tar så mye plass som nødvendig */
+  max-width: 500px;         /* begrenser bredde for lesbarhet */
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Overskrift */
+#about-page .about-text h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+/* Høyre kolonne for bilde */
+#about-page .about-image {
+  flex: 1;                  /* tar resten av plassen */
+  display: flex;
+  justify-content: flex-end; /* skyver bildet mot høyre */
+}
+
+#about-page .about-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+#about-page .about-text p {
+  margin-bottom: 20px; /* increased from 20px to 30px for more spacing */
+}
+
+.header-insta {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  pointer-events: auto;  /* ensures clicks register */
+}
+
+.gallery {
+  column-count: 2;
+  column-gap: 70px;
+}
+
+.gallery img {
+  width: 100%;
+  margin: 0 0 70px;
+  display: block;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.gallery img.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Mobilvennlig justering ---------------- */
+@media (max-width: 768px) {
+  /* Mindre padding for innhold */
+  #main-content, .page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Mindre logo */
+  .logo img {
+    height: 80px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  /* Navigasjon tilpasset mobil */
+  nav ul {
+    gap: 15px;
+    padding-right: 10px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  /* Galleri 1 kolonne på mobil */
+  .gallery {
+    column-count: 1;
+    column-gap: 20px;
+  }
+
+  /* About-page tekst */
+  #about-page .about-text {
+    max-width: 100%;
+    font-size: 16px;
+  }
+}
+
+.gallery img {
+  will-change: transform, opacity;
+}
