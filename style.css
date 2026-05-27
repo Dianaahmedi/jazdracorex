@@ -289,8 +289,8 @@ nav ul li a img {
 @media (max-width: 768px) {
   /* Mindre padding for innhold */
   #main-content, .page {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
 
@@ -314,7 +314,7 @@ nav ul li a img {
   /* Galleri 1 kolonne på mobil */
   .gallery {
     column-count: 1;
-    column-gap: 15px;
+    column-gap: 20px;
   }
 
   /* About-page tekst */
