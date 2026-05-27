@@ -268,9 +268,8 @@ nav ul li a img {
 
 .gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
 .gallery img {
@@ -290,8 +289,8 @@ nav ul li a img {
 @media (max-width: 768px) {
   /* Mindre padding for innhold */
   #main-content, .page {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   /* Mindre logo */
@@ -314,7 +313,7 @@ nav ul li a img {
   /* Galleri 1 kolonne på mobil */
   .gallery {
     column-count: 1;
-    column-gap: 20px;
+    column-gap: 15px;
   }
 
   /* About-page tekst */
