@@ -314,7 +314,7 @@ nav ul li a img {
 
   /* Galleri 1 kolonne på mobil */
 .gallery {
-  column-count: 2;
+  column-count: 1;
 }
 
   /* About-page tekst */
