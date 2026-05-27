@@ -266,11 +266,18 @@ nav ul li a img {
   pointer-events: auto;  /* ensures clicks register */
 }
 
-
+.gallery {
+  column-count: 2;
+  column-gap: 70px;
+}
 
 .gallery img {
   width: 100%;
+  margin: 0 0 70px;
   display: block;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
@@ -281,11 +288,6 @@ nav ul li a img {
   transform: translateY(0);
 }
 
-.gallery {
-  column-count: 2;
-  column-gap: 70px;
-}
-
 /* ---------------- Mobilvennlig justering ---------------- */
 @media (max-width: 768px) {
   /* Mindre padding for innhold */
@@ -293,7 +295,6 @@ nav ul li a img {
     padding-left: 20px;
     padding-right: 20px;
   }
-  
 
   /* Mindre logo */
   .logo img {
@@ -313,9 +314,10 @@ nav ul li a img {
   }
 
   /* Galleri 1 kolonne på mobil */
-.gallery {
-  column-count: 1;
-}
+  .gallery {
+    column-count: 1;
+    column-gap: 20px;
+  }
 
   /* About-page tekst */
   #about-page .about-text {
@@ -328,9 +330,3 @@ nav ul li a img {
   will-change: transform, opacity;
 }
 
-  html, body {
-  overflow-x: hidden;
-}
-  body {
-  overflow-x: hidden;
-}
